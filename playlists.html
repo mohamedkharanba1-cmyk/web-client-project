@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="he">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Playlists</title>
+</head>
+<body>
+  <div id="header"></div>
+
+  <h1>הפלייליסטים שלי</h1>
+
+  <div style="display:flex; gap:16px;">
+    <aside style="width:260px; border:1px solid #ddd; padding:10px;">
+      <h3>הספרייה שלי</h3>
+      <button id="newPlaylistBtn">+ פלייליסט חדש</button>
+      <ul id="playlistList"></ul>
+    </aside>
+
+    <main style="flex:1; border:1px solid #ddd; padding:10px;">
+      <div id="playlistHeader"></div>
+      <input id="filter" placeholder="חיפוש בתוך הפלייליסט..." />
+      <button id="sortAZ">מיון א-ב</button>
+      <button id="sortRating">מיון לפי דירוג</button>
+      <div id="playlistVideos"></div>
+    </main>
+  </div>
+
+  <script type="module" src="js/playlists.js"></script>
+</body>
+</html>

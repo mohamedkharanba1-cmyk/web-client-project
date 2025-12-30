@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="he">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Search</title>
+</head>
+<body>
+  <div id="header"></div>
+
+  <h1>חיפוש</h1>
+  <form id="searchForm">
+    <input id="q" placeholder="שם שיר / זמר" required />
+    <button type="submit">חפש</button>
+  </form>
+
+  <div id="results"></div>
+
+  <!-- מודאל לנגן -->
+  <div id="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6);">
+    <div style="background:white; margin:5% auto; padding:10px; max-width:800px;">
+      <button id="closeModal">סגור</button>
+      <div id="player"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/search.js"></script>
+</body>
+</html>
