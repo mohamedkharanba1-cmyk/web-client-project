@@ -1,11 +1,74 @@
-<h1>Mohamed Kharanba</h1>
-<p>ID: 308529155</p>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> WC | Home</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-badge">WC</div>
+        <div>
+          <div>Web Client</div>
+          <small>Music playlists in-browser</small>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a class="btn ghost" href="login.html" data-show-out>Log in</a>
+        <a class="btn" href="register.html" data-show-out>Register</a>
+        <a class="btn ghost" href="search.html" data-show-in>Search</a>
+        <a class="btn ghost" href="playlists.html" data-show-in>Playlists</a>
+        <button class="btn ghost" data-show-in data-logout>Log out</button>
+      </nav>
+    </div>
+  </header>
 
-<a href="https://github.com/USERNAME/REPO">GitHub</a>
-<a href="https://USERNAME.github.io/REPO">Live Site</a>
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card reveal">
+        <p class="eyebrow">Web Client Project</p>
+        <h1 class="hero-title">Build your own music library from YouTube</h1>
+        <p class="hero-subtitle">
+          Search videos, save them into playlists, and play instantly. Everything stays in your browser storage.
+        </p>
 
-<hr>
-<a href="login.html">Login</a> |
-<a href="register.html">Register</a>
-<iframe src="https://www.youtube.com/embed/VIDEO_ID"></iframe>
+        <div class="info-grid">
+          <div class="info-block">
+            <div class="label">Student</div>
+            <div class="value">mohamed kharanba</div>
+          </div>
+          <div class="info-block">
+            <div class="label">ID</div>
+            <div class="value">308529155</div>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a href="login.html" class="btn">Log in</a>
+          <a href="register.html" class="btn ghost">Register</a>
+        </div>
+      </div>
+
+      <div class="hero-card highlight reveal" data-delay="0.1">
+        <h2 class="form-title">Features</h2>
+        <ul class="feature-list">
+          <li>Search YouTube with cards (duration/views).</li>
+          <li>Create multiple playlists and add tracks.</li>
+          <li>Rate, sort, and filter inside playlists.</li>
+          <li>Built-in player for quick preview.</li>
+        </ul>
+        <div class="cta-row">
+          <a href="search.html" class="btn secondary">Start</a>
+          <a href="playlists.html" class="btn ghost">Library</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/core.js"></script>
+</body>
+</html>
 

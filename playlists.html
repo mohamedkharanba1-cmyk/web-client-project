@@ -1,31 +1,89 @@
 <!doctype html>
-<html lang="he">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Playlists</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WC | Playlists</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="header"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-badge">WC</div>
+        <div>
+          <div>Web Client</div>
+          <small>Your playlists</small>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="btn ghost">Home</a>
+        <a href="search.html" class="btn ghost">Search</a>
+        <button class="btn ghost" data-logout>Log out</button>
+      </nav>
+    </div>
+  </header>
 
-  <h1>הפלייליסטים שלי</h1>
+  <main class="container">
+    <section class="split-layout">
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Library</h2>
+        <button class="btn" id="plNew">+ New</button>
+        <div id="plSide" class="sidebar-list"></div>
+        <button class="btn secondary" id="plPlay">Play</button>
+      </aside>
 
-  <div style="display:flex; gap:16px;">
-    <aside style="width:260px; border:1px solid #ddd; padding:10px;">
-      <h3>הספרייה שלי</h3>
-      <button id="newPlaylistBtn">+ פלייליסט חדש</button>
-      <ul id="playlistList"></ul>
-    </aside>
+      <section class="content-panel">
+        <div class="content-header">
+          <div>
+            <h1 id="plTitle" class="form-title">Pick a playlist</h1>
+            <p id="plMeta" class="muted small"></p>
+          </div>
+          <div class="control-row">
+            <input id="plFilter" type="search" placeholder="Filter..." />
+            <button class="btn ghost" id="plAZ">Sort A-Z</button>
+            <button class="btn ghost" id="plRate">Sort rating</button>
+            <button class="btn danger" id="plDel">Delete</button>
+          </div>
+        </div>
 
-    <main style="flex:1; border:1px solid #ddd; padding:10px;">
-      <div id="playlistHeader"></div>
-      <input id="filter" placeholder="חיפוש בתוך הפלייליסט..." />
-      <button id="sortAZ">מיון א-ב</button>
-      <button id="sortRating">מיון לפי דירוג</button>
-      <div id="playlistVideos"></div>
-    </main>
-  </div>
+        <div id="plEmpty" class="notice" hidden></div>
+        <div id="plItems" class="playlist-items"></div>
+      </section>
+    </section>
+  </main>
 
-  <script type="module" src="js/playlists.js"></script>
+  <dialog id="dlgNewList">
+    <div class="dialog-content">
+      <h2 class="form-title">New playlist</h2>
+      <div class="field">
+        <label for="newListName">Name</label>
+        <input id="newListName" placeholder="e.g. Workout" />
+      </div>
+      <div class="dialog-actions">
+        <button class="btn ghost" id="newCancel">Cancel</button>
+        <button class="btn" id="newOk">Create</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlgListPlayer">
+    <div class="dialog-content">
+      <h2 id="lpTitle" class="form-title"></h2>
+      <iframe id="lpFrame" class="video-frame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="control-row">
+        <button class="btn ghost" id="lpPrev">Prev</button>
+        <button class="btn ghost" id="lpNext">Next</button>
+      </div>
+      <div class="dialog-actions">
+        <button class="btn ghost" id="lpClose">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/core.js"></script>
+  <script src="js/playlists.js"></script>
 </body>
 </html>
+
+

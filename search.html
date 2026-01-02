@@ -1,29 +1,114 @@
 <!doctype html>
-<html lang="he">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Search</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WC | Search</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="header"></div>
-
-  <h1>חיפוש</h1>
-  <form id="searchForm">
-    <input id="q" placeholder="שם שיר / זמר" required />
-    <button type="submit">חפש</button>
-  </form>
-
-  <div id="results"></div>
-
-  <!-- מודאל לנגן -->
-  <div id="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6);">
-    <div style="background:white; margin:5% auto; padding:10px; max-width:800px;">
-      <button id="closeModal">סגור</button>
-      <div id="player"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-badge">WC</div>
+        <div>
+          <div>Web Client</div>
+          <small>Search & save</small>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html" class="btn ghost">Home</a>
+        <a href="playlists.html" class="btn ghost">Playlists</a>
+        <button class="btn ghost" data-logout>Log out</button>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <script type="module" src="js/search.js"></script>
+  <main class="container">
+    <section class="search-header">
+      <div>
+        <p class="eyebrow">Search</p>
+        <h1 class="hero-title">Hello, <span data-name></span></h1>
+        <p class="hero-subtitle">Search a song or artist.</p>
+      </div>
+
+      <div class="search-card">
+        <div class="user-pill">
+          <img data-avatar src="https://via.placeholder.com/80" alt="Avatar" />
+          <div>
+            <div class="small muted">Logged in as</div>
+            <div data-name></div>
+          </div>
+        </div>
+        <button class="btn ghost" id="kBtn">YouTube API key</button>
+      </div>
+    </section>
+
+    <section class="search-card">
+      <form id="sForm" class="search-form" novalidate>
+        <label for="sQuery" class="small muted">Search</label>
+        <div class="search-row">
+          <input id="sQuery" type="search" placeholder="e.g. Coldplay Yellow" required />
+          <button class="btn" type="submit">Search</button>
+        </div>
+      </form>
+
+      <div class="control-row">
+        <span id="kState" class="small muted"></span>
+      </div>
+      <div id="sInfo" class="notice" hidden></div>
+    </section>
+
+    <section id="sGrid" class="results-grid"></section>
+  </main>
+
+  <dialog id="dlgPlayer">
+    <div class="dialog-content">
+      <h2 id="pTitle" class="form-title"></h2>
+      <iframe id="pFrame" class="video-frame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div class="dialog-actions">
+        <button class="btn ghost" id="pClose">Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlgAdd">
+    <div class="dialog-content">
+      <h2 class="form-title">Add to playlist</h2>
+      <p id="aTitle" class="muted"></p>
+
+      <div class="field">
+        <label for="aSelect">Choose playlist</label>
+        <select id="aSelect"></select>
+      </div>
+
+      <div class="field">
+        <label for="aNew">Or new playlist</label>
+        <input id="aNew" placeholder="New playlist name" />
+      </div>
+
+      <div class="dialog-actions">
+        <button class="btn ghost" id="aCancel">Cancel</button>
+        <button class="btn" id="aOk">Add</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlgKey">
+    <div class="dialog-content">
+      <h2 class="form-title">YouTube API key</h2>
+      <div class="field">
+        <label for="kInput">Key</label>
+        <input id="kInput" class="ltr" placeholder="AIza..." />
+      </div>
+      <div class="dialog-actions">
+        <button class="btn ghost" id="kCancel">Close</button>
+        <button class="btn" id="kSave">Save</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="js/core.js"></script>
+  <script src="js/search.js"></script>
 </body>
 </html>
